@@ -45,7 +45,7 @@ extern "C" {
 
 /* SLONGLONG: 64bit, signed */
 #if defined(__arch64__) || defined(__alpha) || defined(__x86_64) \
-	|| defined(_M_IA64) || defined(_M_AMD64)
+	|| defined(_M_IA64) || defined(_M_AMD64) || defined(__arm64__)
 typedef long		SLONGLONG;
 #define NATIVE_64BIT_INT
 #elif defined(__powerpc64__)

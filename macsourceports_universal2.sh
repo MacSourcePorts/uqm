@@ -20,14 +20,19 @@ mkdir ${ARM64_BUILD_FOLDER}
 ./build.sh uqm clean
 (PKG_CONFIG_PATH=/usr/local/lib/pkgconfig CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ARCH=x86_64 ./build.sh uqm -j8)
 build/unix_installer/copy_mac_frameworks.pl
+mv "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/packages/uqm-0.8.0-3domusic.uqm" "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/addons"
+mv "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/packages/uqm-0.8.0-voice.uqm" "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/addons"
 mv "${WRAPPER_NAME}" ${X86_64_BUILD_FOLDER}
 
 ./build.sh uqm clean
 (ARCH=arm64 ./build.sh uqm -j8)
 build/unix_installer/copy_mac_frameworks.pl
+mv "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/packages/uqm-0.8.0-3domusic.uqm" "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/addons"
+mv "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/packages/uqm-0.8.0-voice.uqm" "${UNLOCALIZED_RESOURCES_FOLDER_PATH}/content/addons"
 mv "${WRAPPER_NAME}" ${ARM64_BUILD_FOLDER}
 
 # create the app bundle
+export BUNDLE_ID="com.macsourceports.uqm"
 "../MSPScripts/build_app_bundle.sh"
 
 "../MSPScripts/sign_and_notarize.sh" "$1"
