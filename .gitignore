@@ -1,0 +1,10 @@
+config_unix.h
+config.state
+build.vars
+obj/
+uqm-wrapper
+.DS_Store
+uqm-debug
+The Ur-Quan Masters.app
+uqm
+dist-packages/
