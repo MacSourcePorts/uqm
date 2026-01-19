@@ -153,8 +153,8 @@ prepareContentDir (const char *contentDirName, const char* addonDirName, const c
 		/* On OSX, if the content can't be found in any of the static
 		 * locations, attempt to look inside the application bundle,
 		 * by looking relative to the location of the uqm executable. */
-		if (loc == NULL)
-		{
+		// if (loc == NULL)
+		// {
 			char *tempDir = (char *) HMalloc (PATH_MAX);
 			char *execFileDup;
 
@@ -165,9 +165,9 @@ prepareContentDir (const char *contentDirName, const char* addonDirName, const c
 			snprintf (tempDir, PATH_MAX, "%s/../Resources/content",
 					dirname (execFileDup));
 			loc = findFileInDirs ((const char **) &tempDir, 1, testFile);
-			HFree (execFileDup);
-			HFree (tempDir);
-		}
+			// HFree (execFileDup);
+			// HFree (tempDir);
+		// }
 #endif
 	}
 	else
